@@ -10,7 +10,7 @@
     "react": "^16.13.1",
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^1.1.5",
     "react-textarea-autosize": "^7.1.2"
   },
   "scripts": {
