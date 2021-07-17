@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import Icon from "@material-ui/core/Icon";
 import TextareaAutosize from "react-textarea-autosize";
 import Card from "@material-ui/core/Card";
-import Button from '@material-ui/core/Button';
-import { addList, addCard } from '../actions'
-import { useDispatch } from 'react-redux';
+import Button from "@material-ui/core/Button";
+import { addList, addCard } from "../actions";
+import { useDispatch } from "react-redux";
 
-function TrelloActionButton({ list,listID }) {
+function TrelloActionButton({ list, listID }) {
   const [formOpen, setformOpen] = useState(false);
   const [text, setText] = useState();
   const dispatch = useDispatch();
@@ -24,7 +24,14 @@ function TrelloActionButton({ list,listID }) {
 
     return (
       <div>
-        <Card style={{overflow:"visible",minHeight:80,minWidth:272,padding:"6px 8px 2px"}}>
+        <Card
+          style={{
+            overflow: "visible",
+            minHeight: 80,
+            minWidth: 272,
+            padding: "6px 8px 2px",
+          }}
+        >
           <TextareaAutosize
             placeholder={placeholder}
             onBlur={closeForm}
@@ -32,20 +39,22 @@ function TrelloActionButton({ list,listID }) {
             value={text}
             onChange={handleInputChange}
             style={{
-                resize:"none",
-                width:"100%",
-                outline:"none",
-                border:"none"
-            }
-
-            }
+              resize: "none",
+              width: "100%",
+              outline: "none",
+              border: "none",
+            }}
           />
         </Card>
         <div style={styles.formButtonGroup}>
-            <Button onMouseDown={list ? handleAddList : handleAddCard } varient="contined" style={{color:"white",backgroundColor:"#5aac44"}}>
+          <Button
+            onMouseDown={list ? handleAddList : handleAddCard}
+            varient="contined"
+            style={{ color: "white", backgroundColor: "#5aac44" }}
+          >
             {buttonTitle}{" "}
-            </Button>
-            <Icon style={{marginLeft:8,curson:"pointer"}}>close</Icon>
+          </Button>
+          <Icon style={{ marginLeft: 8, curson: "pointer" }}>close</Icon>
         </div>
       </div>
     );
@@ -60,23 +69,23 @@ function TrelloActionButton({ list,listID }) {
   };
 
   const handleInputChange = (e) => {
-    setText(e.target.value)
+    setText(e.target.value);
   };
 
-  const handleAddList=()=>{
-       if(text){
-           setText("");
-           dispatch(addList(text))
-       }
-       return;
-  }
-  const handleAddCard=()=>{
-    if(text){
-        setText("");
-        dispatch(addCard(listID,text))
+  const handleAddList = () => {
+    if (text) {
+      setText("");
+      dispatch(addList(text));
     }
     return;
-}
+  };
+  const handleAddCard = () => {
+    if (text) {
+      setText("");
+      dispatch(addCard(listID, text));
+    }
+    return;
+  };
 
   const renderaddButton = () => {
     return (
@@ -108,11 +117,11 @@ const styles = {
     width: 272,
     paddingLeft: 10,
   },
-  formButtonGroup:{
-       marginTop : 8,
-       display : "flex",
-       alignItems : "center"
-  }
+  formButtonGroup: {
+    marginTop: 8,
+    display: "flex",
+    alignItems: "center",
+  },
 };
 
 export default TrelloActionButton;

@@ -6,32 +6,12 @@ const initialState = [
     title: "NEW",
     id: `list-${0}`,
     cards: [
-    //   {
-    //     id: `card-${0}`,
-    //     text: "this is a text about me.",
-    //   },
-    //   {
-    //     id: `card-${1}`,
-    //     text: "this is a text about you .",
-    //   },
     ],
   },
   {
     title: "DONE",
     id: `list-${1}`,
     cards: [
-    //   {
-    //     id: `card-${2}`,
-    //     text: "this is a text about them.",
-    //   },
-    //   {
-    //     id: `card-${3}`,
-    //     text: "this is a text about yours .",
-    //   },
-    //   {
-    //     id: `card-${4}`,
-    //     text: "this is a text about theirs .",
-    //   },
     ],
   },
 ];
@@ -69,8 +49,7 @@ const listReducer = (state = initialState, action) => {
           const {droppableIdStart,
             droppableIdEnd,
             droppableIndexStart,
-            droppableIndexEnd,
-            draggableId} = action.payload;
+            droppableIndexEnd} = action.payload;
           const newState = [...state];
           // in the same list
           if(droppableIdStart === droppableIdEnd ){
